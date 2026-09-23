@@ -7,7 +7,7 @@
 <meta name="description" content="Catálogo Gabs Semijoias: brincos, anéis, colares e pulseiras. Garantia de 6 meses, Pix ou cartão e envio para todo o Brasil. Peça pelo WhatsApp.">
 <meta property="og:title" content="Gabs Semijoias · Catálogo">
 <meta property="og:description" content="Brincos, anéis, colares e pulseiras. Garantia de 6 meses e envio para todo o Brasil.">
-<meta property="og:image" content="img/hero-colares.jpg">
+<meta property="og:image" content="hero-colares.jpg">
 <meta name="theme-color" content="#F5EEE6">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -174,7 +174,7 @@
       </div>
     </div>
     <figure class="arch" style="margin:0">
-      <img src="img/hero-colares.jpg" alt="Colares ponto de luz em três camadas no colo de uma modelo" width="1000" height="914">
+      <img src="hero-colares.jpg" alt="Colares ponto de luz em três camadas no colo de uma modelo" width="1000" height="914">
     </figure>
   </section>
 
@@ -273,7 +273,7 @@ function card(p){
   const el = document.createElement("article");
   if (p.trio){
     el.className = "card trio";
-    el.innerHTML = `<div class="ph"><img loading="lazy" src="img/${p.img}.jpg" alt="Três pulseiras no pulso: bolinhas, corações entrelaçados e pérolas"></div>
+    el.innerHTML = `<div class="ph"><img loading="lazy" src="${p.img}.jpg" alt="Três pulseiras no pulso: bolinhas, corações entrelaçados e pérolas"></div>
       <div class="info"><div class="cat">${p.cat}</div><h3>${p.name}</h3>
       <div class="note">Use sozinhas ou juntas. Escolha a sua:</div>
       ${p.options.map(o=>`<div class="opt"><div><b>${o.name}</b><div class="price">${brl(o.price)}</div></div>
@@ -283,7 +283,7 @@ function card(p){
   }
   el.className = "card";
   const msg = `Olá! Vi no catálogo e tenho interesse no ${p.name} (${brl(p.price)}${p.size?`, tamanho ${p.size}`:""}).`;
-  el.innerHTML = `<div class="ph"><img loading="lazy" src="img/${p.img}.jpg" alt="${p.name}">${p.size?`<span class="size">Tamanho ${p.size}</span>`:""}</div>
+  el.innerHTML = `<div class="ph"><img loading="lazy" src="${p.img}.jpg" alt="${p.name}">${p.size?`<span class="size">Tamanho ${p.size}</span>`:""}</div>
     <div class="info"><div class="cat">${p.cat}</div><h3>${p.name}</h3>
     ${p.note?`<div class="note">${p.note}</div>`:""}
     <div class="price">${brl(p.price)}</div>
