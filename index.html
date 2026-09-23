@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gabs Semijoias · Catálogo</title>
+<meta name="description" content="Catálogo Gabs Semijoias: brincos, anéis, colares e pulseiras. Garantia de 6 meses, Pix ou cartão e envio para todo o Brasil. Peça pelo WhatsApp.">
+<meta property="og:title" content="Gabs Semijoias · Catálogo">
+<meta property="og:description" content="Brincos, anéis, colares e pulseiras. Garantia de 6 meses e envio para todo o Brasil.">
+<meta property="og:image" content="img/hero-colares.jpg">
+<meta name="theme-color" content="#F5EEE6">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Jost:wght@400;500&display=swap">
+<style>
+  html{-webkit-text-size-adjust:100%; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px); scroll-behavior:smooth}
+  body{margin:0}
+  img{max-width:100%}
+  [hidden]{display:none!important}
+  :root{
+    --ground:#F5EEE6; --surface:#FFFAF4; --ink:#3A1D24; --muted:#76625B;
+    --gold:#94672C; --gold-soft:#D8B98A; --line:#E4D6C7; --chip:#EFE4D8;
+    --wa:#1F7A4D; --wa-ink:#FFFFFF;
+    --display:"Cormorant Garamond", "Iowan Old Style", Georgia, serif;
+    --body:"Jost", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+    --radius:14px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      color-scheme:dark;
+      --ground:#1B1416; --surface:#251C1E; --ink:#F2E6DA; --muted:#B9A79D;
+      --gold:#DDBB84; --gold-soft:#8A6A45; --line:#3B2F2D; --chip:#302525;
+      --wa:#2E9B63; --wa-ink:#FFFFFF;
+    }
+  }
+  :root[data-theme="dark"]{
+    color-scheme:dark;
+    --ground:#1B1416; --surface:#251C1E; --ink:#F2E6DA; --muted:#B9A79D;
+    --gold:#DDBB84; --gold-soft:#8A6A45; --line:#3B2F2D; --chip:#302525;
+    --wa:#2E9B63; --wa-ink:#FFFFFF;
+  }
+  *{box-sizing:border-box}
+  body{background:var(--ground); color:var(--ink); font-family:var(--body); font-size:16px; line-height:1.55; padding-inline:clamp(16px,4vw,40px); padding-block:0 96px}
+  .wrap{max-width:1120px; margin-inline:auto}
+  a{color:inherit}
+  :focus-visible{outline:2px solid var(--gold); outline-offset:3px; border-radius:6px}
+
+  /* Header */
+  header.top{display:flex; align-items:center; justify-content:space-between; gap:16px; padding-block:22px 10px}
+  .brand{display:flex; flex-direction:column; line-height:1; text-decoration:none}
+  .brand b{font-family:var(--display); font-weight:600; font-size:34px; letter-spacing:.04em}
+  .brand span{font-size:10.5px; letter-spacing:.42em; text-transform:uppercase; color:var(--muted); margin-top:4px; padding-left:2px}
+  .top-link{font-size:14px; text-decoration:none; border:1px solid var(--line); padding:8px 14px; border-radius:999px; white-space:nowrap}
+  .top-link:hover{border-color:var(--gold)}
+
+  /* Hero */
+  .hero{display:grid; grid-template-columns:1.05fr .95fr; gap:clamp(24px,5vw,64px); align-items:center; padding-block:28px 40px}
+  .eyebrow{font-size:12px; letter-spacing:.3em; text-transform:uppercase; color:var(--gold)}
+  .hero h1{font-family:var(--display); font-weight:500; font-style:italic; font-size:clamp(46px,7vw,84px); line-height:.98; margin:14px 0 18px; text-wrap:balance}
+  .hero p.lead{font-size:18px; color:var(--muted); max-width:34ch; margin:0 0 26px}
+  .actions{display:flex; flex-wrap:wrap; gap:12px}
+  .btn{display:inline-flex; align-items:center; justify-content:center; gap:10px; font:500 15px/1 var(--body); text-decoration:none; padding:15px 22px; border-radius:999px; border:1px solid transparent; cursor:pointer}
+  .btn-wa{background:var(--wa); color:var(--wa-ink)}
+  .btn-wa:hover{filter:brightness(1.08)}
+  .btn-ghost{border-color:var(--ink); color:var(--ink); background:transparent}
+  .btn-ghost:hover{background:var(--ink); color:var(--ground)}
+  .btn svg{width:18px; height:18px; flex:none}
+  .arch{position:relative; justify-self:end; width:min(100%,400px)}
+  .arch img{display:block; width:100%; aspect-ratio:4/5; object-fit:cover; object-position:50% 40%; border-radius:220px 220px var(--radius) var(--radius)}
+  .arch::after{content:""; position:absolute; inset:-12px; border:1px solid var(--gold-soft); border-radius:232px 232px 22px 22px; pointer-events:none}
+
+  /* Promise strip */
+  .promise{display:grid; grid-template-columns:repeat(3,1fr); border-block:1px solid var(--line); margin-block:8px 44px}
+  .promise div{padding:18px 16px; text-align:center}
+  .promise div + div{border-left:1px solid var(--line)}
+  .promise strong{display:block; font-family:var(--display); font-size:24px; font-weight:600; line-height:1.1}
+  .promise small{font-size:13px; color:var(--muted); letter-spacing:.02em}
+
+  /* Catalog */
+  .section-head{display:flex; align-items:end; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:18px}
+  h2{font-family:var(--display); font-weight:500; font-style:italic; font-size:clamp(36px,5vw,52px); line-height:1; margin:0}
+  .count{color:var(--muted); font-size:14px; font-variant-numeric:tabular-nums}
+  .filters{position:sticky; top:env(safe-area-inset-top,0px); z-index:5; background:var(--ground); display:flex; gap:8px; overflow-x:auto; padding-block:12px; margin-bottom:12px; scrollbar-width:none}
+  .filters::-webkit-scrollbar{display:none}
+  .chip{flex:none; font:500 14px/1 var(--body); color:var(--ink); background:var(--chip); border:1px solid transparent; padding:11px 16px; border-radius:999px; cursor:pointer}
+  .chip[aria-pressed="true"]{background:var(--ink); color:var(--ground)}
+  .chip span{color:inherit; opacity:.6; font-variant-numeric:tabular-nums; margin-left:4px}
+
+  .grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:clamp(12px,2vw,22px)}
+  .card{display:flex; flex-direction:column; background:var(--surface); border-radius:var(--radius); overflow:hidden}
+  .card .ph{position:relative; aspect-ratio:3/4; background:var(--chip)}
+  .card .ph img{width:100%; height:100%; object-fit:cover; display:block}
+  .size{position:absolute; left:10px; top:10px; font-size:12px; letter-spacing:.04em; background:var(--surface); color:var(--ink); padding:5px 9px; border-radius:999px}
+  .card .info{display:flex; flex-direction:column; gap:4px; padding:14px 14px 16px; flex:1}
+  .cat{font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:var(--gold)}
+  .card h3{font-family:var(--display); font-weight:600; font-size:23px; line-height:1.1; margin:0}
+  .price{font-size:17px; font-weight:500; font-variant-numeric:tabular-nums; margin-top:2px}
+  .note{font-size:13px; color:var(--muted)}
+  .card .btn{margin-top:auto; padding:12px 14px; font-size:14px}
+  .card .info .btn{margin-top:12px}
+
+  /* Bracelet trio card spans two columns */
+  .card.trio{grid-column:span 2; flex-direction:row}
+  .card.trio .ph{flex:1 1 50%; aspect-ratio:auto; min-height:320px}
+  .card.trio .info{flex:1 1 50%; padding:20px}
+  .opt{display:flex; align-items:center; justify-content:space-between; gap:12px; padding-block:12px; border-top:1px solid var(--line)}
+  .opt:first-of-type{margin-top:8px}
+  .opt b{font-weight:500; display:block}
+  .opt .price{margin:0; font-size:15px}
+  .mini{font:500 13px/1 var(--body); text-decoration:none; background:var(--wa); color:var(--wa-ink); padding:10px 12px; border-radius:999px; white-space:nowrap}
+
+  /* How to buy */
+  .how{display:grid; grid-template-columns:.8fr 1.2fr; gap:clamp(24px,5vw,64px); margin-block:72px 0; align-items:start}
+  .how ol{list-style:none; margin:0; padding:0; display:grid; gap:0}
+  .how li{display:grid; grid-template-columns:56px 1fr; gap:16px; padding-block:18px; border-top:1px solid var(--line)}
+  .how li:last-child{border-bottom:1px solid var(--line)}
+  .how .n{font-family:var(--display); font-style:italic; font-size:40px; line-height:1; color:var(--gold)}
+  .how h3{font-size:18px; font-weight:500; margin:0 0 2px}
+  .how p{margin:0; color:var(--muted); font-size:15px}
+
+  /* VIP */
+  .vip{margin-top:64px; background:var(--ink); color:var(--ground); border-radius:22px; padding:clamp(28px,5vw,52px); display:flex; gap:24px; align-items:center; justify-content:space-between; flex-wrap:wrap}
+  .vip h2{color:var(--ground)}
+  .vip p{margin:8px 0 0; opacity:.8; max-width:44ch}
+  .vip .btn{background:var(--ground); color:var(--ink)}
+  .vip .btn:hover{filter:brightness(.95)}
+
+  footer{margin-top:56px; padding-top:24px; border-top:1px solid var(--line); display:flex; flex-wrap:wrap; gap:12px 32px; justify-content:space-between; color:var(--muted); font-size:14px}
+  footer a{text-decoration:none; color:var(--ink)}
+  .num{user-select:all; font-variant-numeric:tabular-nums}
+
+  .fab{position:fixed; right:16px; bottom:calc(16px + env(safe-area-inset-bottom,0px)); z-index:10; box-shadow:0 8px 24px rgba(0,0,0,.18)}
+
+  @media (max-width:760px){
+    .hero{grid-template-columns:1fr; padding-top:12px}
+    .arch{justify-self:center; width:min(78%,300px); margin-top:8px}
+    .hero p.lead{max-width:none}
+    .promise{grid-template-columns:1fr}
+    .promise div + div{border-left:0; border-top:1px solid var(--line)}
+    .how{grid-template-columns:1fr}
+    .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .card h3{font-size:19px}
+    .card .info{padding:12px 12px 14px}
+    .card .btn{font-size:13px; padding:11px 8px; gap:6px}
+    .card .btn svg{width:15px; height:15px}
+    .card.trio{grid-column:1 / -1; flex-direction:column}
+    .card.trio .ph{aspect-ratio:3/4; min-height:0}
+    .top-link{display:none}
+  }
+  @media (prefers-reduced-motion:no-preference){
+    .card{transition:transform .25s ease}
+    .card:hover{transform:translateY(-3px)}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="#inicio" aria-label="Gabs Semijoias, início"><b>GABS</b><span>Semijoias</span></a>
+    <a class="top-link" href="#catalogo">Ver catálogo</a>
+  </header>
+
+  <section class="hero" id="inicio">
+    <div>
+      <div class="eyebrow">Beleza nos detalhes</div>
+      <h1>Semijoias para realçar a sua beleza</h1>
+      <p class="lead">Brincos, anéis, colares e pulseiras escolhidos com carinho. Escolha a sua peça e peça direto pelo WhatsApp.</p>
+      <div class="actions">
+        <a class="btn btn-wa" data-wa="Olá! Vim pelo catálogo e quero ver as semijoias." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.2c0-.1-.2-.2-.5-.3Z"/></svg>
+          Pedir pelo WhatsApp
+        </a>
+        <a class="btn btn-ghost" href="#catalogo">Ver as peças</a>
+      </div>
+    </div>
+    <figure class="arch" style="margin:0">
+      <img src="img/hero-colares.jpg" alt="Colares ponto de luz em três camadas no colo de uma modelo" width="1000" height="914">
+    </figure>
+  </section>
+
+  <div class="promise" role="list">
+    <div role="listitem"><strong>6 meses</strong><small>de garantia nas semijoias</small></div>
+    <div role="listitem"><strong>Pix ou cartão</strong><small>formas de pagamento</small></div>
+    <div role="listitem"><strong>Todo o Brasil</strong><small>enviamos para você</small></div>
+  </div>
+
+  <section id="catalogo" aria-labelledby="cat-title">
+    <div class="section-head">
+      <h2 id="cat-title">Catálogo</h2>
+      <div class="count" id="count" aria-live="polite"></div>
+    </div>
+    <div class="filters" role="toolbar" aria-label="Filtrar por categoria" id="filters"></div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <section class="how" aria-labelledby="how-title">
+    <div>
+      <div class="eyebrow">Simples assim</div>
+      <h2 id="how-title" style="margin-top:12px">Como comprar</h2>
+    </div>
+    <ol>
+      <li><span class="n">1</span><div><h3>Escolha a sua peça</h3><p>Navegue pelo catálogo e toque em “Pedir pelo WhatsApp” na peça que gostou.</p></div></li>
+      <li><span class="n">2</span><div><h3>Converse com a gente</h3><p>A mensagem já vai com o nome e o preço da peça. É só enviar.</p></div></li>
+      <li><span class="n">3</span><div><h3>Pague e receba</h3><p>Pix ou cartão, com envio para todo o Brasil e 6 meses de garantia.</p></div></li>
+    </ol>
+  </section>
+
+  <section class="vip" aria-labelledby="vip-title">
+    <div>
+      <h2 id="vip-title">Grupo VIP</h2>
+      <p>Entre no nosso grupo do WhatsApp e acompanhe as peças da Gabs por lá.</p>
+    </div>
+    <a class="btn" href="https://chat.whatsapp.com/BTRzew1gUBgHchIiAWacDK" target="_blank" rel="noopener">Entrar no grupo</a>
+  </section>
+
+  <footer>
+    <div><strong style="color:var(--ink)">Gabs Semijoias</strong> · Beleza nos detalhes</div>
+    <div>Instagram: <a href="https://www.instagram.com/gabsjoiasesemijoias/" target="_blank" rel="noopener">@gabsjoiasesemijoias</a></div>
+    <div>WhatsApp: <span class="num">(16) 99781-4182</span></div>
+  </footer>
+</div>
+
+<a class="btn btn-wa fab" data-wa="Olá! Vim pelo catálogo e quero ver as semijoias." target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.2c0-.1-.2-.2-.5-.3Z"/></svg>
+  WhatsApp
+</a>
+
+<script>
+const WA = "5516997814182";
+const waLink = (msg) => `https://wa.me/${WA}?text=${encodeURIComponent(msg)}`;
+const brl = (v) => "R$ " + v.toFixed(2).replace(".", ",");
+
+// Catálogo — edite aqui para adicionar, remover ou mudar preços.
+const PRODUCTS = [
+  { cat:"Brincos", name:"Brinco Gota Vermelha",        price:89.99, img:"b03-gota-vermelha" },
+  { cat:"Brincos", name:"Brinco Coração com Pérola",   price:94.99, img:"b04-coracao-perola" },
+  { cat:"Brincos", name:"Brinco Flor com Pérola",      price:79.99, img:"b08-flor-perola" },
+  { cat:"Brincos", name:"Brinco Flor Colorida",        price:64.90, img:"b01-flor-colorida" },
+  { cat:"Brincos", name:"Brinco Orgânico Cravejado",   price:74.99, img:"b05-organico-cravejado" },
+  { cat:"Brincos", name:"Brinco Disco Cravejado",      price:54.99, img:"b02-disco-cravejado" },
+  { cat:"Brincos", name:"Brinco Espiral",              price:54.99, img:"b10-espiral" },
+  { cat:"Brincos", name:"Brinco Infinito com Gota",    price:49.99, img:"b09-infinito-gota" },
+  { cat:"Brincos", name:"Brinco Gota Vazada",          price:44.90, img:"b11-gota-vazada" },
+  { cat:"Brincos", name:"Brinco Gota Texturizada",     price:44.99, img:"b06-gota-texturizada" },
+  { cat:"Brincos", name:"Brinco Pérola Clássica",      price:34.99, img:"b07-perola-classica" },
+  { cat:"Brincos", name:"Brinco Pérola e Pedra Verde", price:29.99, img:"b12-perola-pedra-verde" },
+  { cat:"Anéis",   name:"Anel Retângulo Cravejado",    price:99.99, img:"a04-retangulo-cravejado", size:19 },
+  { cat:"Anéis",   name:"Anel Entrelaçado Cravejado",  price:99.99, img:"a06-entrelacado", size:20 },
+  { cat:"Anéis",   name:"Anel Gota Aberto",            price:83.99, img:"a02-gota-aberto", size:18 },
+  { cat:"Anéis",   name:"Anel Laço de Pedras",         price:81.99, img:"a07-laco-pedras", size:22 },
+  { cat:"Anéis",   name:"Anel Fivela Baguete",         price:79.99, img:"a08-fivela-baguete", size:20 },
+  { cat:"Anéis",   name:"Anel Trevo Cravejado",        price:64.99, img:"a05-trevo-cravejado", size:19 },
+  { cat:"Anéis",   name:"Anel Baguete Duplo",          price:51.99, img:"a03-baguete-duplo", size:18 },
+  { cat:"Anéis",   name:"Anel Flor Delicada",          price:34.99, img:"a01-flor-delicada", size:18 },
+  { cat:"Colares", name:"Colar Ponto de Luz Triplo",   price:79.99, img:"c02-ponto-de-luz-triplo" },
+  { cat:"Colares", name:"Colar Coração Cravejado",     price:59.99, img:"c01-coracao-cravejado" },
+  { cat:"Colares", name:"Conjunto Gota",               price:44.99, img:"c03-conjunto-gota", note:"Colar e brincos" },
+  { cat:"Pulseiras", trio:true, name:"Mix de pulseiras", img:"p01-pulseiras", options:[
+      { name:"Pulseira Bolinhas",    price:45.99 },
+      { name:"Pulseira Corações",    price:49.99 },
+      { name:"Pulseira de Pérolas",  price:44.99 },
+  ]},
+];
+const CATS = ["Todos","Brincos","Anéis","Colares","Pulseiras"];
+const countOf = (c) => PRODUCTS.reduce((n,p)=> n + ((c==="Todos"||p.cat===c) ? (p.options ? p.options.length : 1) : 0), 0);
+
+const filters = document.getElementById("filters");
+const grid = document.getElementById("grid");
+const count = document.getElementById("count");
+let current = "Todos";
+
+function card(p){
+  const el = document.createElement("article");
+  if (p.trio){
+    el.className = "card trio";
+    el.innerHTML = `<div class="ph"><img loading="lazy" src="img/${p.img}.jpg" alt="Três pulseiras no pulso: bolinhas, corações entrelaçados e pérolas"></div>
+      <div class="info"><div class="cat">${p.cat}</div><h3>${p.name}</h3>
+      <div class="note">Use sozinhas ou juntas. Escolha a sua:</div>
+      ${p.options.map(o=>`<div class="opt"><div><b>${o.name}</b><div class="price">${brl(o.price)}</div></div>
+        <a class="mini" target="_blank" rel="noopener" href="${waLink(`Olá! Vi no catálogo e tenho interesse na ${o.name} (${brl(o.price)}).`)}">Pedir</a></div>`).join("")}
+      </div>`;
+    return el;
+  }
+  el.className = "card";
+  const msg = `Olá! Vi no catálogo e tenho interesse no ${p.name} (${brl(p.price)}${p.size?`, tamanho ${p.size}`:""}).`;
+  el.innerHTML = `<div class="ph"><img loading="lazy" src="img/${p.img}.jpg" alt="${p.name}">${p.size?`<span class="size">Tamanho ${p.size}</span>`:""}</div>
+    <div class="info"><div class="cat">${p.cat}</div><h3>${p.name}</h3>
+    ${p.note?`<div class="note">${p.note}</div>`:""}
+    <div class="price">${brl(p.price)}</div>
+    <a class="btn btn-wa" target="_blank" rel="noopener" href="${waLink(msg)}" aria-label="Pedir ${p.name} pelo WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Z"/></svg>Pedir no WhatsApp</a></div>`;
+  return el;
+}
+
+function render(){
+  grid.replaceChildren(...PRODUCTS.filter(p => current==="Todos" || p.cat===current).map(card));
+  const n = countOf(current);
+  count.textContent = `${n} ${n===1?"peça":"peças"}`;
+  [...filters.children].forEach(b => b.setAttribute("aria-pressed", String(b.dataset.cat===current)));
+}
+
+CATS.forEach(c => {
+  const b = document.createElement("button");
+  b.className = "chip"; b.type = "button"; b.dataset.cat = c; b.id = "f-" + c;
+  b.innerHTML = `${c}<span>${countOf(c)}</span>`;
+  b.addEventListener("click", () => { current = c; render(); });
+  filters.appendChild(b);
+});
+document.querySelectorAll("[data-wa]").forEach(a => a.href = waLink(a.dataset.wa));
+render();
+</script>
+</body>
+</html>
