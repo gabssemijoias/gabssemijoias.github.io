@@ -96,6 +96,8 @@
   .card .ph{position:relative; aspect-ratio:3/4; background:var(--chip)}
   .card .ph img{width:100%; height:100%; object-fit:cover; display:block}
   .size{position:absolute; left:10px; top:10px; font-size:12px; letter-spacing:.04em; background:var(--surface); color:var(--ink); padding:5px 9px; border-radius:999px}
+  .esgotado{position:absolute; right:10px; top:10px; font-size:12px; letter-spacing:.04em; background:var(--ink); color:var(--ground); padding:5px 9px; border-radius:999px}
+  .card.sem-estoque .ph img{opacity:.55; filter:grayscale(.4)}
   .card .info{display:flex; flex-direction:column; gap:4px; padding:14px 14px 16px; flex:1}
   .cat{font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:var(--gold)}
   .card h3{font-family:var(--display); font-weight:600; font-size:23px; line-height:1.1; margin:0}
@@ -130,6 +132,47 @@
   .vip .btn{background:var(--ground); color:var(--ink)}
   .vip .btn:hover{filter:brightness(.95)}
 
+
+  /* Pedido (carrinho) */
+  .btn-add{background:var(--ink); color:var(--ground)}
+  .btn-add:hover{filter:brightness(1.15)}
+  .stepper{display:flex; align-items:center; justify-content:space-between; gap:6px; border:1px solid var(--ink); border-radius:999px; padding:3px}
+  .stepper button{width:36px; height:36px; border-radius:999px; border:0; background:var(--chip); color:var(--ink); font:500 20px/1 var(--body); cursor:pointer; flex:none}
+  .stepper button:disabled{opacity:.35; cursor:not-allowed}
+  .stepper{min-width:0}
+  .stepper small{font-size:inherit}
+  .stepper span{font-size:14px; font-variant-numeric:tabular-nums; text-align:center; flex:1; white-space:nowrap}
+  .card .acao{margin-top:auto; padding-top:12px}
+  .card .acao .btn{width:100%; margin:0}
+  .opt .acao{flex:none; min-width:128px}
+  .opt .stepper button{width:30px; height:30px; font-size:17px}
+  .ultima{font-size:12px; color:var(--gold); font-weight:500}
+  .bag{position:fixed; left:50%; transform:translateX(-50%); bottom:calc(16px + env(safe-area-inset-bottom,0px)); z-index:11; display:flex; align-items:center; gap:14px; background:var(--ink); color:var(--ground); border:0; border-radius:999px; padding:14px 22px; font:500 15px/1 var(--body); cursor:pointer; box-shadow:0 10px 30px rgba(0,0,0,.25); white-space:nowrap}
+  .bag b{background:var(--ground); color:var(--ink); border-radius:999px; min-width:24px; height:24px; display:inline-grid; place-items:center; font-size:13px; padding:0 6px}
+  .bag .total{opacity:.85; font-variant-numeric:tabular-nums}
+  dialog.pedido{border:0; padding:0; width:min(520px, calc(100vw - 24px)); max-height:calc(100dvh - 32px); border-radius:22px; background:var(--surface); color:var(--ink); box-shadow:0 24px 64px rgba(0,0,0,.3)}
+  dialog.pedido::backdrop{background:rgba(20,10,12,.5)}
+  .pedido-in{display:flex; flex-direction:column; max-height:calc(100dvh - 32px)}
+  .pedido-topo{display:flex; align-items:center; justify-content:space-between; padding:20px 22px 8px}
+  .pedido-topo h2{font-size:34px}
+  .fechar{border:0; background:var(--chip); color:var(--ink); width:38px; height:38px; border-radius:999px; font-size:20px; cursor:pointer}
+  .itens{list-style:none; margin:0; padding:0 22px; overflow:auto}
+  .itens li{display:grid; grid-template-columns:56px 1fr auto; gap:12px; align-items:center; padding:12px 0; border-top:1px solid var(--line)}
+  .itens li:first-child{border-top:0}
+  .itens img{width:56px; height:56px; object-fit:cover; border-radius:10px}
+  .itens .nm{font-weight:500; line-height:1.25}
+  .itens .pr{font-size:14px; color:var(--muted); font-variant-numeric:tabular-nums}
+  .itens .stepper{min-width:112px}
+  .itens .stepper button{width:28px; height:28px; font-size:16px}
+  .pedido-rodape{padding:14px 22px 22px; border-top:1px solid var(--line); display:grid; gap:12px}
+  .soma{display:flex; justify-content:space-between; align-items:baseline; font-size:15px}
+  .soma strong{font-family:var(--display); font-size:30px; font-weight:600; font-variant-numeric:tabular-nums}
+  .pedido-rodape label{font-size:13px; color:var(--muted); display:grid; gap:4px}
+  .pedido-rodape input{font:inherit; color:var(--ink); background:var(--ground); border:1px solid var(--line); border-radius:12px; padding:11px 14px}
+  .pedido-rodape .btn{width:100%}
+  .limpar{background:none; border:0; color:var(--muted); font:inherit; font-size:14px; text-decoration:underline; cursor:pointer; justify-self:center}
+  .aviso-pedido{font-size:13px; color:var(--muted); margin:0; text-align:center}
+
   footer{margin-top:56px; padding-top:24px; border-top:1px solid var(--line); display:flex; flex-wrap:wrap; gap:12px 32px; justify-content:space-between; color:var(--muted); font-size:14px}
   footer a{text-decoration:none; color:var(--ink)}
   .num{user-select:all; font-variant-numeric:tabular-nums}
@@ -151,6 +194,9 @@
     .card.trio{grid-column:1 / -1; flex-direction:column}
     .card.trio .ph{aspect-ratio:3/4; min-height:0}
     .top-link{display:none}
+    .card .stepper button{width:32px; height:32px}
+    .card .stepper small{display:none}
+    .bag{padding:13px 18px}
   }
   @media (prefers-reduced-motion:no-preference){
     .card{transition:transform .25s ease}
@@ -204,8 +250,8 @@
       <h2 id="how-title" style="margin-top:12px">Como comprar</h2>
     </div>
     <ol>
-      <li><span class="n">1</span><div><h3>Escolha a sua peça</h3><p>Navegue pelo catálogo e toque em “Pedir pelo WhatsApp” na peça que gostou.</p></div></li>
-      <li><span class="n">2</span><div><h3>Converse com a gente</h3><p>A mensagem já vai com o nome e o preço da peça. É só enviar.</p></div></li>
+      <li><span class="n">1</span><div><h3>Monte o seu pedido</h3><p>Toque em “Adicionar ao pedido” nas peças que gostou. Pode escolher quantas quiser.</p></div></li>
+      <li><span class="n">2</span><div><h3>Envie pelo WhatsApp</h3><p>Toque em “Ver pedido” e depois em “Enviar pedido”. A mensagem já vai com as peças, as quantidades e o total.</p></div></li>
       <li><span class="n">3</span><div><h3>Pague e receba</h3><p>Pix ou cartão, com envio para todo o Brasil e 6 meses de garantia.</p></div></li>
     </ol>
   </section>
@@ -230,44 +276,96 @@
   WhatsApp
 </a>
 
+<button class="bag" id="bag" type="button" hidden aria-haspopup="dialog">
+  <b id="bag-n">0</b> Ver pedido <span class="total" id="bag-total"></span>
+</button>
+
+<dialog class="pedido" id="pedido" aria-labelledby="pedido-titulo">
+  <div class="pedido-in">
+    <div class="pedido-topo"><h2 id="pedido-titulo">Seu pedido</h2><button class="fechar" type="button" id="fechar" aria-label="Fechar">×</button></div>
+    <ul class="itens" id="itens"></ul>
+    <div class="pedido-rodape">
+      <div class="soma"><span id="soma-n"></span><strong id="soma-total"></strong></div>
+      <label>Seu nome (opcional)<input id="cliente" autocomplete="given-name" maxlength="60" placeholder="Para a Gabi saber quem é"></label>
+      <a class="btn btn-wa" id="enviar" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Z"/></svg>
+        Enviar pedido pelo WhatsApp</a>
+      <p class="aviso-pedido">O pagamento (Pix ou cartão) e o frete são combinados na conversa.</p>
+      <button class="limpar" type="button" id="limpar">Esvaziar pedido</button>
+    </div>
+  </div>
+</dialog>
+
 <script>
 const WA = "5516997814182";
 const waLink = (msg) => `https://wa.me/${WA}?text=${encodeURIComponent(msg)}`;
 const brl = (v) => "R$ " + v.toFixed(2).replace(".", ",");
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[c]));
+const WA_ICON = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Z"/></svg>';
 
 // Catálogo — edite aqui para adicionar, remover ou mudar preços.
 const PRODUCTS = [
-  { cat:"Brincos", name:"Brinco Gota Vermelha",        price:89.99, img:"b03-gota-vermelha" },
-  { cat:"Brincos", name:"Brinco Coração com Pérola",   price:94.99, img:"b04-coracao-perola" },
-  { cat:"Brincos", name:"Brinco Flor com Pérola",      price:79.99, img:"b08-flor-perola" },
-  { cat:"Brincos", name:"Brinco Flor Colorida",        price:64.90, img:"b01-flor-colorida" },
-  { cat:"Brincos", name:"Brinco Orgânico Cravejado",   price:74.99, img:"b05-organico-cravejado" },
-  { cat:"Brincos", name:"Brinco Disco Cravejado",      price:54.99, img:"b02-disco-cravejado" },
-  { cat:"Brincos", name:"Brinco Espiral",              price:54.99, img:"b10-espiral" },
-  { cat:"Brincos", name:"Brinco Infinito com Gota",    price:49.99, img:"b09-infinito-gota" },
-  { cat:"Brincos", name:"Brinco Gota Vazada",          price:44.90, img:"b11-gota-vazada" },
-  { cat:"Brincos", name:"Brinco Gota Texturizada",     price:44.99, img:"b06-gota-texturizada" },
-  { cat:"Brincos", name:"Brinco Pérola Clássica",      price:34.99, img:"b07-perola-classica" },
-  { cat:"Brincos", name:"Brinco Pérola e Pedra Verde", price:29.99, img:"b12-perola-pedra-verde" },
-  { cat:"Anéis",   name:"Anel Retângulo Cravejado",    price:99.99, img:"a04-retangulo-cravejado", size:19 },
-  { cat:"Anéis",   name:"Anel Entrelaçado Cravejado",  price:99.99, img:"a06-entrelacado", size:20 },
-  { cat:"Anéis",   name:"Anel Gota Aberto",            price:83.99, img:"a02-gota-aberto", size:18 },
-  { cat:"Anéis",   name:"Anel Laço de Pedras",         price:81.99, img:"a07-laco-pedras", size:22 },
-  { cat:"Anéis",   name:"Anel Fivela Baguete",         price:79.99, img:"a08-fivela-baguete", size:20 },
-  { cat:"Anéis",   name:"Anel Trevo Cravejado",        price:64.99, img:"a05-trevo-cravejado", size:19 },
-  { cat:"Anéis",   name:"Anel Baguete Duplo",          price:51.99, img:"a03-baguete-duplo", size:18 },
-  { cat:"Anéis",   name:"Anel Flor Delicada",          price:34.99, img:"a01-flor-delicada", size:18 },
-  { cat:"Colares", name:"Colar Ponto de Luz Triplo",   price:79.99, img:"c02-ponto-de-luz-triplo" },
-  { cat:"Colares", name:"Colar Coração Cravejado",     price:59.99, img:"c01-coracao-cravejado" },
-  { cat:"Colares", name:"Conjunto Gota",               price:44.99, img:"c03-conjunto-gota", note:"Colar e brincos" },
-  { cat:"Pulseiras", trio:true, name:"Mix de pulseiras", img:"p01-pulseiras", options:[
-      { name:"Pulseira Bolinhas",    price:45.99 },
-      { name:"Pulseira Corações",    price:49.99 },
-      { name:"Pulseira de Pérolas",  price:44.99 },
-  ]},
+  {"cat":"Brincos","name":"Brinco Gota Vermelha","price":89.99,"img":"b03-gota-vermelha.jpg"},
+  {"cat":"Brincos","name":"Brinco Coração com Pérola","price":94.99,"img":"b04-coracao-perola.jpg"},
+  {"cat":"Brincos","name":"Brinco Flor com Pérola","price":79.99,"img":"b08-flor-perola.jpg"},
+  {"cat":"Brincos","name":"Brinco Flor Colorida","price":64.9,"img":"b01-flor-colorida.jpg"},
+  {"cat":"Brincos","name":"Brinco Orgânico Cravejado","price":74.99,"img":"b05-organico-cravejado.jpg"},
+  {"cat":"Brincos","name":"Brinco Disco Cravejado","price":54.99,"img":"b02-disco-cravejado.jpg"},
+  {"cat":"Brincos","name":"Brinco Espiral","price":54.99,"img":"b10-espiral.jpg"},
+  {"cat":"Brincos","name":"Brinco Infinito com Gota","price":49.99,"img":"b09-infinito-gota.jpg"},
+  {"cat":"Brincos","name":"Brinco Gota Vazada","price":44.9,"img":"b11-gota-vazada.jpg"},
+  {"cat":"Brincos","name":"Brinco Gota Texturizada","price":44.99,"img":"b06-gota-texturizada.jpg"},
+  {"cat":"Brincos","name":"Brinco Pérola Clássica","price":34.99,"img":"b07-perola-classica.jpg"},
+  {"cat":"Brincos","name":"Brinco Pérola e Pedra Verde","price":29.99,"img":"b12-perola-pedra-verde.jpg"},
+  {"cat":"Anéis","name":"Anel Retângulo Cravejado","price":99.99,"img":"a04-retangulo-cravejado.jpg","size":"19"},
+  {"cat":"Anéis","name":"Anel Entrelaçado Cravejado","price":99.99,"img":"a06-entrelacado.jpg","size":"20"},
+  {"cat":"Anéis","name":"Anel Gota Aberto","price":83.99,"img":"a02-gota-aberto.jpg","size":"18"},
+  {"cat":"Anéis","name":"Anel Laço de Pedras","price":81.99,"img":"a07-laco-pedras.jpg","size":"22"},
+  {"cat":"Anéis","name":"Anel Fivela Baguete","price":79.99,"img":"a08-fivela-baguete.jpg","size":"20"},
+  {"cat":"Anéis","name":"Anel Trevo Cravejado","price":64.99,"img":"a05-trevo-cravejado.jpg","size":"19"},
+  {"cat":"Anéis","name":"Anel Baguete Duplo","price":51.99,"img":"a03-baguete-duplo.jpg","size":"18"},
+  {"cat":"Anéis","name":"Anel Flor Delicada","price":34.99,"img":"a01-flor-delicada.jpg","size":"18"},
+  {"cat":"Colares","name":"Colar Ponto de Luz Triplo","price":79.99,"img":"c02-ponto-de-luz-triplo.jpg"},
+  {"cat":"Colares","name":"Colar Coração Cravejado","price":59.99,"img":"c01-coracao-cravejado.jpg"},
+  {"cat":"Colares","name":"Conjunto Gota","price":44.99,"img":"c03-conjunto-gota.jpg","note":"Colar e brincos"},
+  {"cat":"Pulseiras","trio":true,"name":"Mix de pulseiras","img":"p01-pulseiras.jpg","options":[{"name":"Pulseira Bolinhas","price":45.99},{"name":"Pulseira Corações","price":49.99},{"name":"Pulseira de Pérolas","price":44.99}]}
 ];
 const CATS = ["Todos","Brincos","Anéis","Colares","Pulseiras"];
 const countOf = (c) => PRODUCTS.reduce((n,p)=> n + ((c==="Todos"||p.cat===c) ? (p.options ? p.options.length : 1) : 0), 0);
+
+// Tudo que pode ir para o pedido, indexado pelo nome.
+// "stock" vem do sistema de estoque; sem ele, o limite é 10 por peça.
+const ITENS = new Map();
+PRODUCTS.forEach(p => {
+  if (p.trio) p.options.forEach(o => ITENS.set(o.name, { name:o.name, price:o.price, img:p.img, max:o.stock ?? 10 }));
+  else if (!p.esgotado) ITENS.set(p.name, { name:p.name, price:p.price, img:p.img, size:p.size, max:p.stock ?? 10 });
+});
+
+// Pedido guardado no próprio celular da cliente, para não perder se ela sair da página.
+const CHAVE = "gabs-pedido";
+let pedido = {};
+try { pedido = JSON.parse(localStorage.getItem(CHAVE) || "{}") || {}; } catch { pedido = {}; }
+for (const k of Object.keys(pedido)) {            // tira o que saiu do catálogo ou mudou de estoque
+  const it = ITENS.get(k);
+  if (!it || !(pedido[k] > 0)) delete pedido[k]; else pedido[k] = Math.min(pedido[k], it.max);
+}
+const salvar = () => { try { localStorage.setItem(CHAVE, JSON.stringify(pedido)); } catch {} };
+
+function mudar(nome, delta){
+  const it = ITENS.get(nome); if (!it) return;
+  const q = Math.max(0, Math.min(it.max, (pedido[nome] || 0) + delta));
+  if (q) pedido[nome] = q; else delete pedido[nome];
+  salvar(); atualizar();
+}
+
+function controle(nome){
+  const it = ITENS.get(nome); const q = pedido[nome] || 0;
+  if (!q) return `<button class="btn btn-add" type="button" data-add="${esc(nome)}">Adicionar ao pedido</button>`;
+  return `<div class="stepper" role="group" aria-label="Quantidade de ${esc(nome)}">
+    <button type="button" data-menos="${esc(nome)}" aria-label="Tirar um">−</button>
+    <span>${q}<small> no pedido</small></span>
+    <button type="button" data-mais="${esc(nome)}" aria-label="Adicionar mais um" ${q >= it.max ? "disabled" : ""}>+</button></div>`;
+}
 
 const filters = document.getElementById("filters");
 const grid = document.getElementById("grid");
@@ -278,21 +376,24 @@ function card(p){
   const el = document.createElement("article");
   if (p.trio){
     el.className = "card trio";
-    el.innerHTML = `<div class="ph"><img loading="lazy" src="${p.img}.jpg" alt="Três pulseiras no pulso: bolinhas, corações entrelaçados e pérolas"></div>
-      <div class="info"><div class="cat">${p.cat}</div><h3>${p.name}</h3>
+    el.innerHTML = `<div class="ph"><img loading="lazy" src="${esc(p.img)}" alt="Três pulseiras no pulso: bolinhas, corações entrelaçados e pérolas"></div>
+      <div class="info"><div class="cat">${esc(p.cat)}</div><h3>${esc(p.name)}</h3>
       <div class="note">Use sozinhas ou juntas. Escolha a sua:</div>
-      ${p.options.map(o=>`<div class="opt"><div><b>${o.name}</b><div class="price">${brl(o.price)}</div></div>
-        <a class="mini" target="_blank" rel="noopener" href="${waLink(`Olá! Vi no catálogo e tenho interesse na ${o.name} (${brl(o.price)}).`)}">Pedir</a></div>`).join("")}
+      ${p.options.map(o=>`<div class="opt"><div><b>${esc(o.name)}</b><div class="price">${brl(o.price)}</div>${o.stock===1?`<div class="ultima">Última unidade</div>`:""}</div>
+        <div class="acao" data-item="${esc(o.name)}"></div></div>`).join("")}
       </div>`;
     return el;
   }
-  el.className = "card";
-  const msg = `Olá! Vi no catálogo e tenho interesse no ${p.name} (${brl(p.price)}${p.size?`, tamanho ${p.size}`:""}).`;
-  el.innerHTML = `<div class="ph"><img loading="lazy" src="${p.img}.jpg" alt="${p.name}">${p.size?`<span class="size">Tamanho ${p.size}</span>`:""}</div>
-    <div class="info"><div class="cat">${p.cat}</div><h3>${p.name}</h3>
-    ${p.note?`<div class="note">${p.note}</div>`:""}
+  el.className = p.esgotado ? "card sem-estoque" : "card";
+  const acao = p.esgotado
+    ? `<a class="btn btn-wa" target="_blank" rel="noopener" href="${waLink(`Olá! Vi no catálogo que o ${p.name} está esgotado. Pode me avisar quando chegar?`)}">${WA_ICON}Avise-me</a>`
+    : "";
+  el.innerHTML = `<div class="ph"><img loading="lazy" src="${esc(p.img)}" alt="${esc(p.name)}">${p.size?`<span class="size">Tamanho ${esc(p.size)}</span>`:""}${p.esgotado?`<span class="esgotado">Esgotado</span>`:""}</div>
+    <div class="info"><div class="cat">${esc(p.cat)}</div><h3>${esc(p.name)}</h3>
+    ${p.note?`<div class="note">${esc(p.note)}</div>`:""}
     <div class="price">${brl(p.price)}</div>
-    <a class="btn btn-wa" target="_blank" rel="noopener" href="${waLink(msg)}" aria-label="Pedir ${p.name} pelo WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Z"/></svg>Pedir no WhatsApp</a></div>`;
+    ${p.stock===1 && !p.esgotado ? `<div class="ultima">Última unidade</div>` : ""}
+    <div class="acao"${p.esgotado ? "" : ` data-item="${esc(p.name)}"`}>${acao}</div></div>`;
   return el;
 }
 
@@ -301,7 +402,55 @@ function render(){
   const n = countOf(current);
   count.textContent = `${n} ${n===1?"peça":"peças"}`;
   [...filters.children].forEach(b => b.setAttribute("aria-pressed", String(b.dataset.cat===current)));
+  atualizar();
 }
+
+// ---- Pedido ----
+const bag = document.getElementById("bag"), dlg = document.getElementById("pedido");
+const fab = document.querySelector(".fab");
+const cliente = document.getElementById("cliente");
+
+function mensagem(){
+  const linhas = Object.entries(pedido).map(([k,q]) => {
+    const it = ITENS.get(k);
+    return `• ${q}x ${it.name}${it.size?` (tam. ${it.size})`:""}: ${brl(it.price*q)}`;
+  });
+  const n = Object.values(pedido).reduce((a,b)=>a+b,0);
+  const total = Object.entries(pedido).reduce((s,[k,q]) => s + ITENS.get(k).price*q, 0);
+  const nome = cliente.value.trim();
+  return `Olá! Quero fazer este pedido pelo catálogo:\n\n${linhas.join("\n")}\n\nTotal: ${brl(total)} (${n} ${n===1?"peça":"peças"})` + (nome ? `\nNome: ${nome}` : "");
+}
+
+function atualizar(){
+  document.querySelectorAll(".acao[data-item]").forEach(a => { a.innerHTML = controle(a.dataset.item); });
+  const n = Object.values(pedido).reduce((a,b)=>a+b,0);
+  const total = Object.entries(pedido).reduce((s,[k,q]) => s + ITENS.get(k).price*q, 0);
+  bag.hidden = n === 0; fab.hidden = n > 0;
+  document.getElementById("bag-n").textContent = n;
+  document.getElementById("bag-total").textContent = brl(total);
+  document.getElementById("soma-n").textContent = `${n} ${n===1?"peça":"peças"}`;
+  document.getElementById("soma-total").textContent = brl(total);
+  document.getElementById("itens").innerHTML = Object.entries(pedido).map(([k,q]) => {
+    const it = ITENS.get(k);
+    return `<li><img src="${esc(it.img)}" alt=""><div><div class="nm">${esc(it.name)}${it.size?` · tam. ${esc(it.size)}`:""}</div><div class="pr">${brl(it.price)} cada</div></div>
+      <div class="stepper"><button type="button" data-menos="${esc(k)}" aria-label="Tirar um">−</button><span>${q}</span>
+      <button type="button" data-mais="${esc(k)}" aria-label="Adicionar mais um" ${q>=it.max?"disabled":""}>+</button></div></li>`;
+  }).join("");
+  document.getElementById("enviar").href = waLink(mensagem());
+  if (n === 0 && dlg.open) dlg.close();
+}
+
+document.addEventListener("click", (e) => {
+  const b = e.target.closest("[data-add],[data-mais],[data-menos]"); if (!b) return;
+  if (b.dataset.add) { mudar(b.dataset.add, 1); document.querySelector(`.acao[data-item="${CSS.escape(b.dataset.add)}"] [data-mais]`)?.focus(); }
+  else if (b.dataset.mais) mudar(b.dataset.mais, 1);
+  else mudar(b.dataset.menos, -1);
+});
+bag.addEventListener("click", () => { atualizar(); dlg.showModal(); });
+document.getElementById("fechar").addEventListener("click", () => dlg.close());
+dlg.addEventListener("click", (e) => { if (e.target === dlg) dlg.close(); });
+cliente.addEventListener("input", () => { document.getElementById("enviar").href = waLink(mensagem()); });
+document.getElementById("limpar").addEventListener("click", () => { pedido = {}; salvar(); atualizar(); });
 
 CATS.forEach(c => {
   const b = document.createElement("button");
